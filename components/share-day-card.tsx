@@ -21,15 +21,7 @@ export const ShareDayCard = forwardRef<HTMLDivElement, ShareDayCardProps>(functi
     )}
   >
     {/* Background Image */}
-    <img
-      src="/share-bg.png"
-      alt="Mela Share Background"
-      className="absolute inset-0 h-full w-full object-cover"
-    />
-
-    {/* Dark Overlay */}
-    <div className="absolute inset-0 bg-black/25" />
-
+   
     {/* Content */}
     <div className="relative z-10 flex h-full flex-col items-center justify-center px-10 text-center text-white">
 
