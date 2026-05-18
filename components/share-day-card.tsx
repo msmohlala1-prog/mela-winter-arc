@@ -36,7 +36,7 @@ export const ShareDayCard = forwardRef<
     <div
       ref={ref}
       className={cn(
-        "relative w-full h-screen overflow-hidden rounded-[2.5rem] bg-black",
+        "relative w-full h-screen overflow-hidden bg-black text-white",
         className
       )}
     >
@@ -53,7 +53,7 @@ export const ShareDayCard = forwardRef<
       {/* Dark Overlay */}
       <div className="absolute inset-0 bg-black/45" />
 
-      {/* Upload Button */}
+      {/* Upload */}
       <input
         type="file"
         accept="image/*"
@@ -68,62 +68,62 @@ export const ShareDayCard = forwardRef<
         }}
       />
 
-      {/* Main Layout */}
-      <div className="relative z-10 flex h-full flex-col justify-between px-16 py-24 text-white">
+      {/* Layout */}
+      <div className="relative z-10 flex h-full flex-col justify-between px-10 py-20">
 
-        {/* Branding */}
-        <div className="flex flex-col items-center text-center">
+        {/* Top */}
+        <div className="text-center">
 
-          <p className="text-5xl font-black tracking-[0.3em]">
+          <p className="text-[28px] font-bold tracking-[0.35em]">
             MELA ACTIVE
           </p>
 
-          <p className="mt-4 text-2xl font-bold tracking-[0.25em] text-white/80">
+          <p className="mt-3 text-[16px] font-medium tracking-[0.25em] text-white/70">
             WINTER CHALLENGE
           </p>
 
         </div>
 
-        {/* Main Content */}
-        <div className="mt-auto mb-auto flex flex-col items-center text-center">
+        {/* Center */}
+        <div className="flex flex-col items-center text-center">
 
-          <h1 className="text-[240px] font-black leading-[0.9] tracking-[-0.12em]">
-            {day}
-          </h1>
+          <div className="flex items-end leading-none">
 
-          <p className="-mt-10 text-8xl font-black uppercase tracking-[0.18em]">
-            / 45
-          </p>
+            <span className="text-[220px] font-black tracking-[-0.08em]">
+              {day}
+            </span>
 
-          <p className="mt-16 max-w-[900px] text-7xl font-black italic leading-[1.1]">
+            <span className="mb-6 ml-2 text-[72px] font-bold">
+              /45
+            </span>
+
+          </div>
+
+          <p className="mt-8 max-w-[900px] text-[54px] font-bold italic leading-[1.05]">
             {randomQuote}
           </p>
 
         </div>
 
         {/* Bottom */}
-        <div className="flex flex-col items-center">
+        <div>
 
-          <div className="w-full max-w-[700px]">
+          <div className="mb-4 text-center text-[34px] font-black tracking-[0.2em] text-[#00A86B]">
+            {Math.round((day / 45) * 100)}% COMPLETE
+          </div>
 
-            <div className="mb-6 text-center text-5xl font-black tracking-[0.18em] text-[#00A86B]">
-              {Math.round((day / 45) * 100)}% COMPLETE
-            </div>
+          <div className="h-[10px] w-full rounded-full bg-white/20">
 
-            <div className="h-[14px] w-full rounded-full bg-white/20">
-
-              <div
-                className="h-full rounded-full bg-[#00A86B]"
-                style={{
-                  width: `${(day / 45) * 100}%`,
-                }}
-              />
-
-            </div>
+            <div
+              className="h-full rounded-full bg-[#00A86B]"
+              style={{
+                width: `${(day / 45) * 100}%`,
+              }}
+            />
 
           </div>
 
-          <p className="mt-20 text-5xl font-black tracking-[0.3em]">
+          <p className="mt-12 text-center text-[28px] font-bold tracking-[0.3em]">
             @MELAACTIVE
           </p>
 
