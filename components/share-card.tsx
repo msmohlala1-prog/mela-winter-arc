@@ -41,7 +41,7 @@ export const ShareCard = forwardRef<HTMLDivElement, ShareCardProps>(
         )}
       >
 
-        {/* Uploaded Background Image */}
+        {/* Uploaded Background */}
         {uploadedImage && (
           <img
             src={uploadedImage}
@@ -51,9 +51,9 @@ export const ShareCard = forwardRef<HTMLDivElement, ShareCardProps>(
         )}
 
         {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black/35" />
+        <div className="absolute inset-0 bg-black/45" />
 
-        {/* Upload Button */}
+        {/* Upload */}
         <input
           type="file"
           accept="image/*"
@@ -68,56 +68,66 @@ export const ShareCard = forwardRef<HTMLDivElement, ShareCardProps>(
           }}
         />
 
-        {/* Main Content */}
-        <div className="relative z-10 flex h-full flex-col items-center justify-center px-12 text-center text-white">
+        {/* Main Layout */}
+        <div className="relative z-10 flex h-full flex-col justify-between px-10 py-20 text-white">
 
-          {/* Brand */}
-          <div className="mb-10 flex flex-col items-center">
+          {/* Top Branding */}
+          <div className="flex flex-col items-center text-center">
 
-            <p className="text-3xl font-semibold tracking-[0.35em] text-white">
+            <p className="text-5xl font-black tracking-[0.3em]">
               MELA ACTIVE
             </p>
 
-            <p className="mt-3 text-lg font-medium tracking-[0.25em] text-white/80">
+            <p className="mt-4 text-2xl font-bold tracking-[0.25em] text-white/80">
               WINTER CHALLENGE
             </p>
 
           </div>
 
-          {/* Day */}
-          <h1 className="text-[110px] font-light leading-none tracking-[-0.08em]">
-            DAY {dayNumber} / 45
-          </h1>
+          {/* Middle Content */}
+          <div className="flex flex-col items-center text-center">
 
-          {/* Quote */}
-          <p className="mt-8 max-w-[520px] text-5xl italic font-medium leading-tight text-white">
-            {randomQuote}
-          </p>
+            <h1 className="text-[180px] font-black leading-none tracking-[-0.1em]">
+              {dayNumber}
+            </h1>
 
-          {/* Progress */}
-          <div className="mt-14 w-[260px]">
+            <p className="-mt-6 text-6xl font-black uppercase tracking-[0.2em]">
+              / 45
+            </p>
 
-            <div className="mb-3 text-2xl font-semibold tracking-[0.2em] text-[#00A86B]">
-              {Math.round((dayNumber / 45) * 100)}% COMPLETE
-            </div>
-
-            <div className="h-[4px] w-full rounded-full bg-white/20">
-
-              <div
-                className="h-full rounded-full bg-[#00A86B]"
-                style={{
-                  width: `${(dayNumber / 45) * 100}%`,
-                }}
-              />
-
-            </div>
+            <p className="mt-12 max-w-[700px] text-6xl font-bold italic leading-tight">
+              {randomQuote}
+            </p>
 
           </div>
 
-          {/* Handle */}
-          <p className="mt-14 text-3xl font-medium tracking-[0.25em] text-white">
-            @MELAACTIVE
-          </p>
+          {/* Bottom Content */}
+          <div className="flex flex-col items-center">
+
+            <div className="w-full max-w-[420px]">
+
+              <div className="mb-4 text-center text-4xl font-black tracking-[0.2em] text-[#00A86B]">
+                {Math.round((dayNumber / 45) * 100)}% COMPLETE
+              </div>
+
+              <div className="h-[8px] w-full rounded-full bg-white/20">
+
+                <div
+                  className="h-full rounded-full bg-[#00A86B]"
+                  style={{
+                    width: `${(dayNumber / 45) * 100}%`,
+                  }}
+                />
+
+              </div>
+
+            </div>
+
+            <p className="mt-14 text-4xl font-black tracking-[0.25em]">
+              @MELAACTIVE
+            </p>
+
+          </div>
 
         </div>
 
