@@ -46,18 +46,19 @@ export const ShareDayCard = forwardRef<
         <img
           src={uploadedImage}
           alt="Uploaded background"
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover scale-105"
         />
       )}
 
       {/* Dark Overlay */}
       <div className="absolute inset-0 bg-black/45" />
 
-      {/* Upload */}
+      {/* Hidden Upload Input */}
       <input
         type="file"
         accept="image/*"
-        className="absolute left-5 top-5 z-20 text-sm text-white"
+        className="hidden"
+        id="background-upload"
         onChange={(e) => {
           const file = e.target.files?.[0];
 
@@ -68,7 +69,15 @@ export const ShareDayCard = forwardRef<
         }}
       />
 
-      {/* Layout */}
+      {/* Upload Button */}
+      <label
+        htmlFor="background-upload"
+        className="absolute top-6 right-6 z-20 cursor-pointer rounded-full bg-white/10 px-5 py-3 text-sm font-medium backdrop-blur-md"
+      >
+        Add Photo
+      </label>
+
+      {/* Main Layout */}
       <div className="relative z-10 flex h-full flex-col justify-between px-10 py-20">
 
         {/* Top */}
@@ -87,19 +96,19 @@ export const ShareDayCard = forwardRef<
         {/* Center */}
         <div className="flex flex-col items-center text-center">
 
-          <div className="flex items-end leading-none">
+          <div className="flex items-end justify-center leading-none">
 
-            <span className="text-[220px] font-black tracking-[-0.08em]">
+            <span className="text-[180px] font-black tracking-[-0.08em]">
               {day}
             </span>
 
-            <span className="mb-6 ml-2 text-[72px] font-bold">
+            <span className="mb-5 ml-3 text-[90px] font-semibold text-white/80">
               /45
             </span>
 
           </div>
 
-          <p className="mt-8 max-w-[900px] text-[54px] font-bold italic leading-[1.05]">
+          <p className="mt-8 max-w-[700px] text-[34px] font-semibold italic leading-[1.2] text-white/90">
             {randomQuote}
           </p>
 
