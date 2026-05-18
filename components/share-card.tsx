@@ -36,12 +36,12 @@ export const ShareCard = forwardRef<HTMLDivElement, ShareCardProps>(
       <div
         ref={ref}
         className={cn(
-          "relative aspect-[9/16] w-full overflow-hidden rounded-[2.5rem] bg-black",
+          "relative w-full h-screen overflow-hidden rounded-[2.5rem] bg-black",
           className
         )}
       >
 
-        {/* Uploaded User Image */}
+        {/* Uploaded Background Image */}
         {uploadedImage && (
           <img
             src={uploadedImage}
@@ -53,7 +53,7 @@ export const ShareCard = forwardRef<HTMLDivElement, ShareCardProps>(
         {/* Dark Overlay */}
         <div className="absolute inset-0 bg-black/45" />
 
-        {/* Upload Button */}
+        {/* Upload Image Button */}
         <input
           type="file"
           accept="image/*"
