@@ -41,7 +41,7 @@ export const ShareCard = forwardRef<HTMLDivElement, ShareCardProps>(
         )}
       >
 
-        {/* Uploaded Background */}
+        {/* Uploaded User Image */}
         {uploadedImage && (
           <img
             src={uploadedImage}
@@ -53,7 +53,7 @@ export const ShareCard = forwardRef<HTMLDivElement, ShareCardProps>(
         {/* Dark Overlay */}
         <div className="absolute inset-0 bg-black/45" />
 
-        {/* Upload */}
+        {/* Upload Button */}
         <input
           type="file"
           accept="image/*"
@@ -69,7 +69,7 @@ export const ShareCard = forwardRef<HTMLDivElement, ShareCardProps>(
         />
 
         {/* Main Layout */}
-        <div className="relative z-10 flex h-full flex-col justify-between px-10 py-20 text-white">
+        <div className="relative z-10 flex h-full flex-col justify-between px-16 py-24 text-white">
 
           {/* Top Branding */}
           <div className="flex flex-col items-center text-center">
@@ -84,33 +84,33 @@ export const ShareCard = forwardRef<HTMLDivElement, ShareCardProps>(
 
           </div>
 
-          {/* Middle Content */}
-          <div className="flex flex-col items-center text-center">
+          {/* Main Content */}
+          <div className="mt-auto mb-auto flex flex-col items-center text-center">
 
-            <h1 className="text-[180px] font-black leading-none tracking-[-0.1em]">
+            <h1 className="text-[240px] font-black leading-[0.9] tracking-[-0.12em]">
               {dayNumber}
             </h1>
 
-            <p className="-mt-6 text-6xl font-black uppercase tracking-[0.2em]">
+            <p className="-mt-10 text-8xl font-black uppercase tracking-[0.18em]">
               / 45
             </p>
 
-            <p className="mt-12 max-w-[700px] text-6xl font-bold italic leading-tight">
+            <p className="mt-16 max-w-[900px] text-7xl font-black italic leading-[1.1]">
               {randomQuote}
             </p>
 
           </div>
 
-          {/* Bottom Content */}
+          {/* Bottom Section */}
           <div className="flex flex-col items-center">
 
-            <div className="w-full max-w-[420px]">
+            <div className="w-full max-w-[700px]">
 
-              <div className="mb-4 text-center text-4xl font-black tracking-[0.2em] text-[#00A86B]">
+              <div className="mb-6 text-center text-5xl font-black tracking-[0.18em] text-[#00A86B]">
                 {Math.round((dayNumber / 45) * 100)}% COMPLETE
               </div>
 
-              <div className="h-[8px] w-full rounded-full bg-white/20">
+              <div className="h-[14px] w-full rounded-full bg-white/20">
 
                 <div
                   className="h-full rounded-full bg-[#00A86B]"
@@ -123,7 +123,7 @@ export const ShareCard = forwardRef<HTMLDivElement, ShareCardProps>(
 
             </div>
 
-            <p className="mt-14 text-4xl font-black tracking-[0.25em]">
+            <p className="mt-20 text-5xl font-black tracking-[0.3em]">
               @MELAACTIVE
             </p>
 
