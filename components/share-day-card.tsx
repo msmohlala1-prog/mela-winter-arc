@@ -9,14 +9,14 @@ interface ShareDayCardProps {
 }
 
 export const ShareDayCard = forwardRef<
-HTMLDivElement,
-ShareDayCardProps
+  HTMLDivElement,
+  ShareDayCardProps
 >(function ShareDayCard(
-{
-day,
-className
-},
-ref
+  {
+    day,
+    className,
+  },
+  ref
 ) {
 
 const quotes = [
