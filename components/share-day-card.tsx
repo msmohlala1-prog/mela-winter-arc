@@ -14,21 +14,21 @@ ShareDayCardProps
 >(function ShareDayCard(
 {
   day,
-  className,
+  className
 },
 ref
 ){
 
 const quotes = [
 "hot girls stay consistent",
-"dnd currently becoming that girl",
+"currently becoming that girl",
 "discipline but make it cute",
 "moved my body, fixed my mood",
 "cute & committed",
 "strong girls romanticize routines",
-"currently becoming that girl",
 "healthy is the new hot",
 "showing up still counts",
+"movement is a privilege",
 "discipline is the real self respect",
 "sexy of me to work out in winter",
 "wellness is the flex",
@@ -41,6 +41,7 @@ const quotes = [
 const quote = quotes[day % quotes.length];
 
 return (
+
 <div
 ref={ref}
 className={cn(
@@ -49,20 +50,20 @@ className
 )}
 >
 
-{/* transparent layer */}
+{/* transparent background */}
 <div className="absolute inset-0" />
 
-{/* content */}
-<div className="relative z-10 flex h-full flex-col items-center justify-end pb-32 px-8 text-white">
+<div className="relative z-10 flex h-full flex-col items-center justify-end pb-44 px-8 text-white">
 
 {/* logo */}
-<div className="mb-5 text-center">
 
-<p className="text-[18px] font-semibold tracking-[0.35em]">
+<div className="mb-14 text-center">
+
+<p className="text-[24px] font-semibold tracking-[0.35em]">
 MELA ACTIVE
 </p>
 
-<p className="mt-2 text-[10px] tracking-[0.3em] text-white/70">
+<p className="mt-2 text-[13px] tracking-[0.28em] text-white/70">
 WINTER CHALLENGE
 </p>
 
@@ -70,13 +71,14 @@ WINTER CHALLENGE
 
 
 {/* day */}
-<div className="flex items-end justify-center">
 
-<span className="text-[60px] font-bold leading-none">
+<div className="flex items-end gap-1">
+
+<span className="text-[78px] font-bold leading-none">
 {day}
 </span>
 
-<span className="ml-2 mb-[5px] text-[52px] font-medium text-white/75">
+<span className="text-[78px] font-medium leading-none text-white/70">
 /45
 </span>
 
@@ -84,7 +86,8 @@ WINTER CHALLENGE
 
 
 {/* quote */}
-<p className="mt-3 max-w-[290px] text-center text-[20px] italic leading-tight text-white">
+
+<p className="mt-6 max-w-[360px] text-center text-[26px] italic leading-tight">
 
 "{quote}"
 
@@ -92,13 +95,16 @@ WINTER CHALLENGE
 
 
 {/* progress */}
-<div className="mt-5 flex flex-col items-center">
 
-<p className="mb-2 text-[14px] font-semibold tracking-[0.2em] text-[#00C389]">
-{Math.round((day / 45) * 100)}% COMPLETE
+<div className="mt-10 flex flex-col items-center">
+
+<p className="mb-3 text-[15px] font-semibold tracking-[0.2em] text-[#00C389]">
+
+{Math.round((day/45)*100)}% COMPLETE
+
 </p>
 
-<div className="h-[4px] w-[100px] rounded-full bg-white/20">
+<div className="h-[4px] w-[150px] rounded-full bg-white/20">
 
 <div
 className="h-full rounded-full bg-[#00C389]"
@@ -111,12 +117,19 @@ width:`${(day/45)*100}%`
 
 </div>
 
-<p className="mt-7 text-[14px] font-semibold tracking-[0.25em]">
+
+<p className="mt-10 text-[18px] font-semibold tracking-[0.25em]">
+
 @MELAACTIVE
+
 </p>
 
 </div>
 
 </div>
+
 );
+
 });
+
+ShareDayCard.displayName = "ShareDayCard";
