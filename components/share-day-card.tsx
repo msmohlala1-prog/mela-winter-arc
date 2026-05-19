@@ -1,145 +1,128 @@
 "use client";
 
-import { forwardRef, useState } from "react";
+import { forwardRef } from "react";
 import { cn } from "@/lib/utils";
 
 interface ShareDayCardProps {
   day: number;
+  uploadedImage?: string;
   className?: string;
 }
 
 export const ShareDayCard = forwardRef<
-  HTMLDivElement,
-  ShareDayCardProps
+HTMLDivElement,
+ShareDayCardProps
 >(function ShareDayCard(
-  { day, className },
-  ref
+{
+day,
+uploadedImage,
+className
+},
+ref
 ) {
 
-  const [uploadedImage, setUploadedImage] =
-    useState<string | null>(null);
+const quotes = [
+"sexy of me to work out in winter",
+"discipline is the ultimate self respect",
+"wellness is the flex",
+"showing up each day",
+"winter arc in progress",
+"healthier every day",
+"consistency looks good on me",
+];
 
-  const quotes = [
-    "sexy of me to work out in winter",
-    "discipline is the ultimate self respect",
-    "wellness is the flex",
-    "showing up each day",
-    "winter arc in progress",
-    "healthier every day",
-    "consistency looks good on me",
-  ];
+const randomQuote =
+quotes[day % quotes.length];
 
-  const randomQuote =
-    quotes[Math.floor(Math.random() * quotes.length)];
+return (
 
-  return (
-    <div
-      ref={ref}
-      className={cn(
-        "relative w-full h-screen overflow-hidden bg-black text-white",
-        className
-      )}
-    >
+<div
+ref={ref}
+className={cn(
+"relative w-full h-screen overflow-hidden bg-black text-white",
+className
+)}
+>
 
-      {/* Uploaded Background */}
-      {uploadedImage && (
-        <img
-          src={uploadedImage}
-          alt="Uploaded background"
-          className="absolute inset-0 h-full w-full object-cover scale-105"
-        />
-      )}
+{/* Background */}
+{uploadedImage && (
+<img
+src={uploadedImage}
+alt="Background"
+className="absolute inset-0 h-full w-full object-cover"
+/>
+)}
 
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/45" />
+<div className="absolute inset-0 bg-black/50" />
 
-      {/* Hidden Upload Input */}
-      <input
-        type="file"
-        accept="image/*"
-        className="hidden"
-        id="background-upload"
-        onChange={(e) => {
-          const file = e.target.files?.[0];
+<div className="relative z-10 flex h-full flex-col justify-between px-10 py-16">
 
-          if (file) {
-            const imageUrl = URL.createObjectURL(file);
-            setUploadedImage(imageUrl);
-          }
-        }}
-      />
+{/* Top */}
+<div className="text-center">
 
-      {/* Upload Button */}
-      <label
-        htmlFor="background-upload"
-        className="absolute top-6 right-6 z-20 cursor-pointer rounded-full bg-white/10 px-5 py-3 text-sm font-medium backdrop-blur-md"
-      >
-        Add Photo
-      </label>
+<p className="text-[22px] font-bold tracking-[0.35em]">
+MELA ACTIVE
+</p>
 
-      {/* Main Layout */}
-      <div className="relative z-10 flex h-full flex-col justify-between px-10 py-20">
+<p className="mt-2 text-[14px] tracking-[0.25em] text-white/70">
+WINTER CHALLENGE
+</p>
 
-        {/* Top */}
-        <div className="text-center">
+</div>
 
-          <p className="text-[28px] font-bold tracking-[0.35em]">
-            MELA ACTIVE
-          </p>
+{/* Center */}
+<div className="flex flex-col items-center text-center">
 
-          <p className="mt-3 text-[16px] font-medium tracking-[0.25em] text-white/70">
-            WINTER CHALLENGE
-          </p>
+<p className="mb-4 text-[18px] tracking-[0.4em] text-white/60">
+DAY
+</p>
 
-        </div>
+<div className="flex items-end">
 
-        {/* Center */}
-        <div className="flex flex-col items-center text-center">
+<span className="text-[140px] font-black leading-none">
+{day}
+</span>
 
-          <div className="flex items-end justify-center leading-none">
+<span className="mb-3 ml-2 text-[56px] font-medium text-white/80">
+/45
+</span>
 
-            <span className="text-[180px] font-black tracking-[-0.08em]">
-              {day}
-            </span>
+</div>
 
-            <span className="mb-5 ml-3 text-[90px] font-semibold text-white/80">
-              /45
-            </span>
+<p className="mt-10 max-w-[500px] text-[28px] italic font-semibold leading-[1.3]">
+"{randomQuote}"
+</p>
 
-          </div>
+</div>
 
-          <p className="mt-8 max-w-[700px] text-[34px] font-semibold italic leading-[1.2] text-white/90">
-            {randomQuote}
-          </p>
+{/* Bottom */}
 
-        </div>
+<div>
 
-        {/* Bottom */}
-        <div>
+<div className="mb-3 text-center text-[24px] font-bold tracking-[0.25em] text-[#00A86B]">
+{Math.round((day/45)*100)}% COMPLETE
+</div>
 
-          <div className="mb-4 text-center text-[34px] font-black tracking-[0.2em] text-[#00A86B]">
-            {Math.round((day / 45) * 100)}% COMPLETE
-          </div>
+<div className="h-[8px] rounded-full bg-white/20">
 
-          <div className="h-[10px] w-full rounded-full bg-white/20">
+<div
+className="h-full rounded-full bg-[#00A86B]"
+style={{
+width:`${(day/45)*100}%`
+}}
+/>
 
-            <div
-              className="h-full rounded-full bg-[#00A86B]"
-              style={{
-                width: `${(day / 45) * 100}%`,
-              }}
-            />
+</div>
 
-          </div>
+<p className="mt-8 text-center text-[18px] font-bold tracking-[0.3em]">
+@MELAACTIVE
+</p>
 
-          <p className="mt-12 text-center text-[28px] font-bold tracking-[0.3em]">
-            @MELAACTIVE
-          </p>
+</div>
 
-        </div>
+</div>
 
-      </div>
+</div>
 
-    </div>
-  );
+);
 });
